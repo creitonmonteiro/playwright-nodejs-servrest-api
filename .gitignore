@@ -1,8 +1,24 @@
+# Node
+node_modules
+npm-debug.log
 
 # Playwright
-node_modules/
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-/playwright/.auth/
+playwright-report
+test-results
+blob-report
+
+# Allure
+allure-results
+allure-report
+
+# Environment
+.env
+.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode
+.idea
