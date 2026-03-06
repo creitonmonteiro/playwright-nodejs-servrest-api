@@ -1,0 +1,14 @@
+{
+    "duplicate": {
+        "nome": "Jennifer Aniston",
+        "email": "jennifer.aniston@gmail.com",
+        "password": "pwd123",
+        "administrador": "false"
+    },
+    "invalid": {
+        "nome": "Jennifer Aniston JL",
+        "email": "aniston@gmail.com",
+        "password": "pwd1234",
+        "administrador": "false"
+    }    
+}
