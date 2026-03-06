@@ -2,7 +2,7 @@ name: Playwright API Tests - Node JS
 
 on:
   push:
-    branches: [master]
+    branches: [master]          # ← altere para sua branch default real (main ou master?)
   pull_request:
     branches: [master]
 
@@ -13,22 +13,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js + cache npm
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
+          cache: 'npm'           # cacheia node_modules eficientemente
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright
-        run: npx playwright install --with-deps
+      # NÃO precisa instalar browsers para API tests (request fixture)
+      # - npx playwright install --with-deps  ← REMOVIDO
 
-      - name: Run Playwright tests
+      - name: Run Playwright API tests
         run: npx playwright test
 
       - name: Upload Allure results
+        if: always()                      # upload mesmo se falhar
         uses: actions/upload-artifact@v4
         with:
           name: allure-results
@@ -36,7 +37,7 @@ jobs:
           retention-days: 7
 
   deploy-report:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/master'   # só roda na main após push (não em PRs)
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -49,7 +50,7 @@ jobs:
           name: allure-results
           path: allure-results
 
-      - name: Install Allure
+      - name: Install Allure commandline
         run: npm install -g allure-commandline
 
       - name: Generate Allure report
