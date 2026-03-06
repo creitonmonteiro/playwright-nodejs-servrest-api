@@ -37,7 +37,7 @@ jobs:
           retention-days: 7
 
   deploy-report:
-    if: github.ref == 'refs/heads/master')
+    if: github.ref == 'refs/heads/master'
     needs: test
     runs-on: ubuntu-latest
     steps:
