@@ -1,6 +1,0 @@
-{
-  nome: 'Fantastic Ceramic Shoes',
-  preco: 281,
-  descricao: 'New Pants model with 12 GB RAM, 731 GB storage, and faraway features',
-  quantidade: 450
-}

@@ -9,7 +9,7 @@ import {createUserPayload} from '../../factories/userFactory';
 import {createProductPayload} from '../../factories/productFactory';
 import {createCartPayload} from '../../factories/cartFactory';
 
-test.only ('should create a new cart successfully', async ({request}) => {
+test ('should create a new cart successfully', async ({request}) => {
   const productClient = new ProductsClient (request);
   const usersClient = new UsersClient (request);
   const userLogin = new LoginClient (request);

@@ -1,6 +1,0 @@
-{
-  nome: 'Elegant Granite Gloves',
-  preco: '92.79',
-  descricao: 'Stylish Keyboard designed to make you stand out with impractical looks',
-  quantidade: 327
-}
